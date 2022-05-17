@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace InterfaceCustomer
 {
+    // Design Pattern : Stratergy Pattern - It helps to choose the algorithms dynamically
     public interface IValidation<AnyType>
     {
         void Validate(AnyType obj);

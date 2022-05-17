@@ -14,7 +14,7 @@ namespace FactoryCustomer
 
         public static ICustomer Create(string CustomerType)
         {
-            // Design Patter: Lazy Loading
+            // Design Pattern: Lazy Loading
             if (availableRoles == null)
             {
                 availableRoles = new UnityContainer();
