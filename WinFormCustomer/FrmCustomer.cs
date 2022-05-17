@@ -7,36 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MiddleLayer;
 using FactoryCustomer;
+using InterfaceCustomer;
 
 namespace WinFormCustomer
 {
     public partial class FrmCustomer : Form
     {
-        private CustomerBase customerBase = null;
+        private ICustomer customerBase = null;
         public FrmCustomer()
         {
             InitializeComponent();
             txtBillDate.Text = "1/1/2021";
             txtBillAmount.Text = "0";
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void btnValidate_Click(object sender, EventArgs e)
         {
             try

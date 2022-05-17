@@ -53,7 +53,6 @@ namespace WinFormCustomer
             this.lblCustomerType.Size = new System.Drawing.Size(123, 20);
             this.lblCustomerType.TabIndex = 0;
             this.lblCustomerType.Text = "Customer Type";
-            this.lblCustomerType.Click += new System.EventHandler(this.label1_Click);
             // 
             // cbxCustomerType
             // 
@@ -125,7 +124,6 @@ namespace WinFormCustomer
             this.txtBillDate.Name = "txtBillDate";
             this.txtBillDate.Size = new System.Drawing.Size(180, 22);
             this.txtBillDate.TabIndex = 9;
-            this.txtBillDate.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // lblBillDate
             // 
@@ -136,7 +134,6 @@ namespace WinFormCustomer
             this.lblBillDate.Size = new System.Drawing.Size(95, 20);
             this.lblBillDate.TabIndex = 8;
             this.lblBillDate.Text = "Bill Amount";
-            this.lblBillDate.Click += new System.EventHandler(this.label3_Click);
             // 
             // lblAddress
             // 
