@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FactoryCustomer;
+using FactoryDal;
 using InterfaceCustomer;
+using InterfaceDal;
 
 namespace WinFormCustomer
 {
@@ -21,7 +23,7 @@ namespace WinFormCustomer
             txtBillDate.Text = "1/1/2021";
             txtBillAmount.Text = "0";
         }
-        
+
         private void btnValidate_Click(object sender, EventArgs e)
         {
             try
@@ -29,7 +31,7 @@ namespace WinFormCustomer
                 SetCustomer();
                 customerBase.Validate();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -46,7 +48,29 @@ namespace WinFormCustomer
 
         private void cbxCustomerType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            customerBase = Factory.Create(cbxCustomerType.Text);
+            customerBase = Factory<ICustomer>.Create(cbxCustomerType.Text);
+        }
+
+        private void LoadGrid()
+        {
+            IDal<ICustomer> iDal = FactoryDal<IDal<ICustomer>>.Create("AdoDal");
+            List<ICustomer> list = iDal.Search();
+            dataCustomerGrid.DataSource = list;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            SetCustomer();
+            IDal<ICustomer> iDal = Factory<IDal<ICustomer>>.Create("AdoDal");
+            iDal.Add(customerBase); // In Memory
+            iDal.Save(); // DB Save
+        }
+
+        private void FrmCustomer_Load(object sender, EventArgs e)
+        {
+            cbDalLayer.Items.Add("AdoDal");
+            cbDalLayer.Items.Add("EntityFrame Work");
+            LoadGrid();
         }
     }
 }

@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{889C8FD3-C453-4677-98AC-8695836BF2C5}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>WinFormCustomer</RootNamespace>
-    <AssemblyName>WinFormCustomer</AssemblyName>
+    <ProjectGuid>{06E8F579-B57B-4E8A-97C6-A8673676CF33}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FactoryDal</RootNamespace>
+    <AssemblyName>FactoryDal</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,67 +31,43 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\libs\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\libs\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\libs\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmCustomer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCustomer.Designer.cs">
-      <DependentUpon>FrmCustomer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="FactoryDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmCustomer.resx">
-      <DependentUpon>FrmCustomer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FactoryCustomer\FactoryCustomer.csproj">
-      <Project>{cf2fa9ba-6c4c-49fd-a061-8ef28d3b0cff}</Project>
-      <Name>FactoryCustomer</Name>
+    <ProjectReference Include="..\AdoDotnetDal\AdoDotnetDal.csproj">
+      <Project>{badaba1b-6691-4141-bc8a-2c0967ca2f66}</Project>
+      <Name>AdoDotnetDal</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FactoryDal\FactoryDal.csproj">
-      <Project>{06E8F579-B57B-4E8A-97C6-A8673676CF33}</Project>
-      <Name>FactoryDal</Name>
+    <ProjectReference Include="..\CommonDAL\CommonDAL.csproj">
+      <Project>{E1431498-BECC-4DF1-A1D0-28BC4313611D}</Project>
+      <Name>CommonDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\InterfaceCustomer\InterfaceCustomer.csproj">
-      <Project>{fcd34e66-04fc-4114-93a2-fdfe268e2138}</Project>
+      <Project>{FCD34E66-04FC-4114-93A2-FDFE268E2138}</Project>
       <Name>InterfaceCustomer</Name>
     </ProjectReference>
     <ProjectReference Include="..\InterfaceDal\InterfaceDal.csproj">
-      <Project>{2e1f4ea2-6fcd-43cc-8753-18f009143d4d}</Project>
+      <Project>{2E1F4EA2-6FCD-43CC-8753-18F009143D4D}</Project>
       <Name>InterfaceDal</Name>
     </ProjectReference>
   </ItemGroup>

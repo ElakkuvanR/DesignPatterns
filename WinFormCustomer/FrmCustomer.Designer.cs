@@ -42,6 +42,11 @@ namespace WinFormCustomer
             this.lblAddress = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.btnValidate = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.dataCustomerGrid = new System.Windows.Forms.DataGridView();
+            this.cbDalLayer = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataCustomerGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCustomerType
@@ -164,11 +169,53 @@ namespace WinFormCustomer
             this.btnValidate.UseVisualStyleBackColor = true;
             this.btnValidate.Click += new System.EventHandler(this.btnValidate_Click);
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(38, 535);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(329, 49);
+            this.btnAdd.TabIndex = 13;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // dataCustomerGrid
+            // 
+            this.dataCustomerGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataCustomerGrid.Location = new System.Drawing.Point(38, 675);
+            this.dataCustomerGrid.Name = "dataCustomerGrid";
+            this.dataCustomerGrid.RowHeadersWidth = 51;
+            this.dataCustomerGrid.RowTemplate.Height = 24;
+            this.dataCustomerGrid.Size = new System.Drawing.Size(867, 150);
+            this.dataCustomerGrid.TabIndex = 14;
+            // 
+            // cbDalLayer
+            // 
+            this.cbDalLayer.FormattingEnabled = true;
+            this.cbDalLayer.Location = new System.Drawing.Point(1053, 40);
+            this.cbDalLayer.Name = "cbDalLayer";
+            this.cbDalLayer.Size = new System.Drawing.Size(180, 24);
+            this.cbDalLayer.TabIndex = 15;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(896, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(135, 20);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Choose the Type";
+            // 
             // FrmCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1017, 809);
+            this.ClientSize = new System.Drawing.Size(1259, 809);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cbDalLayer);
+            this.Controls.Add(this.dataCustomerGrid);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnValidate);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.lblAddress);
@@ -184,6 +231,8 @@ namespace WinFormCustomer
             this.Controls.Add(this.lblCustomerType);
             this.Name = "FrmCustomer";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FrmCustomer_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataCustomerGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,6 +253,10 @@ namespace WinFormCustomer
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Button btnValidate;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.DataGridView dataCustomerGrid;
+        private System.Windows.Forms.ComboBox cbDalLayer;
+        private System.Windows.Forms.Label label3;
     }
 }
 

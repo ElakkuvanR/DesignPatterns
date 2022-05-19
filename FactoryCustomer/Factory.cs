@@ -5,24 +5,26 @@ using System.Linq;
 using Microsoft.Practices.Unity;
 using MiddleLayer;
 using ValidationAlgorithms;
+using InterfaceDal;
+using CommonDAL;
 
 namespace FactoryCustomer
 {
-    public static class Factory // Design Pattern: Simple Factory Pattern
+    public static class Factory<AnyType> // Design Pattern: Simple Factory Pattern
     {
-        private static IUnityContainer availableRoles = null;
+        private static IUnityContainer Objects = null;
 
-        public static ICustomer Create(string CustomerType)
+        public static AnyType Create(string Type)
         {
             // Design Pattern: Lazy Loading
-            if (availableRoles == null)
+            if (Objects == null)
             {
-                availableRoles = new UnityContainer();
-                availableRoles.RegisterType<ICustomer, Customer>("Customer", new InjectionConstructor(new CustomerValidation()));
-                availableRoles.RegisterType<ICustomer, Lead>("Lead", new InjectionConstructor(new LeadValidation()));
+                Objects = new UnityContainer();
+                Objects.RegisterType<ICustomer, Customer>("Customer", new InjectionConstructor(new CustomerValidation()));
+                Objects.RegisterType<ICustomer, Lead>("Lead", new InjectionConstructor(new LeadValidation()));
             }
             // Design Pattern: RIP Replace If with Polymorphism
-            return availableRoles.Resolve<ICustomer>(CustomerType);
+            return Objects.Resolve<AnyType>(Type);
         }
     }
 }
